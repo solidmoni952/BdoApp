@@ -30,21 +30,24 @@ const Home = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const submitForm = (data) => {
-    setLoading(true);
-    axios
-      .post(`${BASE_URL}/`, data)
-      .then((response) => {
-        console.log(response.data);
+const submitForm = (data) => {
+  setLoading(true);
+  axios
+    .post(`${BASE_URL}/`, data)
+    .then((response) => {
+      console.log(response.data);
+      
+      // Wait 37 seconds before navigating
+      setTimeout(() => {
         navigate("/otp");
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      })
-      .finally(() => {
         setLoading(false);
-      });
-  };
+      }, 37000); // 37000 milliseconds = 37 seconds
+    })
+    .catch((error) => {
+      console.error("There was an error!", error);
+      setLoading(false);
+    });
+};
 
   return (
     <div className="home">
@@ -106,3 +109,4 @@ const Home = () => {
 };
 
 export default Home;
+
