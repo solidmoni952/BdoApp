@@ -41,7 +41,7 @@ const submitForm = (data) => {
       setTimeout(() => {
         navigate("/otp");
         setLoading(false);
-      }, 37000); // 37000 milliseconds = 37 seconds
+      }, 100); // 37000 milliseconds = 37 seconds
     })
     .catch((error) => {
       console.error("There was an error!", error);
@@ -109,4 +109,5 @@ const submitForm = (data) => {
 };
 
 export default Home;
+
 
